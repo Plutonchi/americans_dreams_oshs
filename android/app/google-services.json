@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "533746022280",
+    "project_id": "american-ae4bb",
+    "storage_bucket": "american-ae4bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533746022280:android:b1ceee0314f29e22862c3d",
+        "android_client_info": {
+          "package_name": "com.example.american_dream_osh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533746022280-5e9eqtldoloi94co990ot7b4a6t8860s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz9j7YQpXjU-Qnf0Ad2KeIA30wo-5p9Q8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533746022280-5e9eqtldoloi94co990ot7b4a6t8860s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
