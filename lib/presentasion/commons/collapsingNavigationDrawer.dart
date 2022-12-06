@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import '../model/model.dart';
@@ -28,6 +30,8 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
     widthAnimation = Tween<double>(begin: maxWidth, end: minWidth)
         .animate(_animationController!);
   }
+
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +101,7 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
               height: 50.0,
             ),
             CollapsingListTile(
-              title: 'Bobur',
+              title: user.email!,
               icon: Icons.person,
               animationController: _animationController,
             ),

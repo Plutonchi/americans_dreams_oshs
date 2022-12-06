@@ -5,12 +5,14 @@ class email_and_password extends StatefulWidget {
   final IconData preffixIcon;
   final IconData? suffixIcon;
   final IconData? suffixIcons;
+  TextEditingController? controllers;
 
   bool obscureText = false;
   Color? color;
 
   email_and_password({
     Key? key,
+    this.controllers,
     required this.hintText,
     this.suffixIcon,
     this.suffixIcons,
@@ -18,6 +20,7 @@ class email_and_password extends StatefulWidget {
     required this.preffixIcon,
     required this.obscureText,
   }) : super(key: key);
+ 
 
   @override
   State<email_and_password> createState() => _email_and_passwordState();
@@ -26,7 +29,8 @@ class email_and_password extends StatefulWidget {
 class _email_and_passwordState extends State<email_and_password> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: widget.controllers,
       obscureText: widget.obscureText,
       cursorColor: Colors.black,
       decoration: InputDecoration(
@@ -92,10 +96,8 @@ class forgot_and_register_password extends StatelessWidget {
 
 class logIn_button extends StatelessWidget {
   String? text;
-  logIn_button({
-    Key? key,
-    this.text,
-  }) : super(key: key);
+  Function()? onPressed;
+  logIn_button({Key? key, this.text, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +105,7 @@ class logIn_button extends StatelessWidget {
       height: 45,
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           "$text",
           style: TextStyle(fontSize: 20),

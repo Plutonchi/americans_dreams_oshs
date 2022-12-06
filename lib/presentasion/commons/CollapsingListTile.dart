@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../provider/color_custom.dart';
 
 class CollapsingListTile extends StatefulWidget {
   final String? title;
+
   final IconData? icon;
   final AnimationController? animationController;
   final bool? isSelected;
@@ -14,7 +16,6 @@ class CollapsingListTile extends StatefulWidget {
       required this.animationController,
       this.isSelected = false,
       this.onTap});
-
   @override
   _CollapsingListTileState createState() => _CollapsingListTileState();
 }
@@ -54,11 +55,13 @@ class _CollapsingListTileState extends State<CollapsingListTile> {
             ),
             SizedBox(width: sizedBoxAnimation!.value),
             (widthAnimation!.value >= 190)
-                ? Text(widget.title!,
-                    style: widget.isSelected!
-                        ? listTitleSelectedTextStyle
-                        : listTitleDefaultTextStyle)
-                : Container()
+                ? Expanded(
+                    child: Text(widget.title!,
+                        style: widget.isSelected!
+                            ? listTitleSelectedTextStyle
+                            : listTitleDefaultTextStyle),
+                  )
+                : Container(),
           ],
         ),
       ),

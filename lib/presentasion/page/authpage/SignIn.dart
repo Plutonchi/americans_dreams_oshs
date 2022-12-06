@@ -1,7 +1,8 @@
+import 'package:american_dream_osh/presentasion/page/home_page.dart';
+import 'package:american_dream_osh/service/register_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../widgets/login_widgets.dart';
+import '../../widgets/login_widgets.dart';
 
 class SingIn extends StatefulWidget {
   const SingIn({super.key});
@@ -11,6 +12,8 @@ class SingIn extends StatefulWidget {
 }
 
 class _SingInState extends State<SingIn> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +44,7 @@ class _SingInState extends State<SingIn> {
                   height: 40,
                 ),
                 email_and_password(
+                  controllers: emailController,
                   hintText: "Email",
                   preffixIcon: Icons.email_outlined,
                   obscureText: false,
@@ -50,6 +54,7 @@ class _SingInState extends State<SingIn> {
                   height: 30,
                 ),
                 email_and_password(
+                  controllers: passwordController,
                   suffixIcon: Icons.visibility,
                   suffixIcons: Icons.visibility_off,
                   hintText: "Password",
@@ -60,7 +65,17 @@ class _SingInState extends State<SingIn> {
                 SizedBox(
                   height: 15,
                 ),
-                logIn_button(text: "Регистрация"),
+                logIn_button(
+                    text: "Регистрация",
+                    onPressed: () async {
+                      await Register.register(
+                          email: emailController.text,
+                          password: passwordController.text);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
+                    }),
                 SizedBox(
                   height: 20,
                 ),

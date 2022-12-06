@@ -1,11 +1,11 @@
+import 'package:american_dream_osh/presentasion/page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../widgets/login_widgets.dart';
+import '../../widgets/login_widgets.dart';
 import 'SignIn.dart';
 
 class LogIn extends StatefulWidget {
-  const LogIn({super.key});
+  LogIn({super.key});
 
   @override
   State<LogIn> createState() => _LogInState();
@@ -15,7 +15,7 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white ,
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Center(
           child: Container(
@@ -64,7 +64,14 @@ class _LogInState extends State<LogIn> {
                 SizedBox(
                   height: 15,
                 ),
-                logIn_button(text: "Войти"),
+                logIn_button(
+                    text: "Войти",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
+                    }),
                 SizedBox(
                   height: 20,
                 ),

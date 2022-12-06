@@ -9,6 +9,8 @@ TextStyle listTitleDefaultTextStyle = TextStyle(
     color: Colors.white70, fontSize: 20.0, fontWeight: FontWeight.w600);
 TextStyle listTitleSelectedTextStyle =
     TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.w600);
+TextStyle userText =
+    TextStyle(fontSize: 22, color: Colors.black, fontWeight: FontWeight.bold);
 
 Color selectedColor = Color.fromARGB(225, 0, 206, 137);
 Color drawerBackgroundColor = Color(0xff809bce);
