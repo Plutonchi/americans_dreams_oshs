@@ -1,6 +1,9 @@
 import 'package:american_dream_osh/presentasion/page/home_page.dart';
 import 'package:american_dream_osh/service/register_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/login_widgets.dart';
 
@@ -9,7 +12,6 @@ class SingIn extends StatefulWidget {
 
   @override
   State<SingIn> createState() => _SingInState();
-
 }
 
 class _SingInState extends State<SingIn> {
@@ -70,8 +72,8 @@ class _SingInState extends State<SingIn> {
                     text: "Регистрация",
                     onPressed: () async {
                       await Register.register(
-                          email: emailController.text,
-                          password: passwordController.text);
+                          email: emailController.text.trim(),
+                          password: passwordController.text.trim());
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => HomePage()),

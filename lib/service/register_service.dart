@@ -1,16 +1,26 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-import '../presentasion/page/authpage/SignIn.dart';
 
 class Register {
   static Future<dynamic> register({
     required String email,
     required String password,
   }) async {
+    void sendVerificationEmail() async {
+      final firebaseUser = await FirebaseAuth.instance.currentUser!;
+      await firebaseUser.sendEmailVerification();
+      Fluttertoast.showToast(
+          msg:
+              "Cсылка для проверки электронной почты отправлена на ваш электронный адрес.",
+          timeInSecForIosWeb: 5,
+          toastLength: Toast.LENGTH_LONG);
+    }
+
     try {
       await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((value) => sendVerificationEmail());
 
       print("Seccsesfull");
     } on FirebaseAuthException catch (e) {

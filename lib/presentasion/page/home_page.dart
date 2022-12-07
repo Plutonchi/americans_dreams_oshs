@@ -1,24 +1,30 @@
-import 'package:american_dream_osh/presentasion/commons/collapsingNavigationDrawer.dart';
 import 'package:flutter/material.dart';
+import 'package:sidebarx/sidebarx.dart';
+import '../provider/animation_slide_bar.dart';
+import '../provider/color_custom.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  HomePage({Key? key}) : super(key: key);
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
+  final _controller = SidebarXController(selectedIndex: 0, extended: true);
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            color: Colors.white,
-          ),
-          CollapsingNavigationDrawer()
-        ],
+      key: _scaffoldKey,
+      drawer: AnimationSlideBar(controller: _controller),
+      appBar: AppBar(
+        backgroundColor: canvasColor,
+        leading: IconButton(
+          onPressed: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
+          icon: const Icon(Icons.menu_rounded),
+        ),
+      ),
+      body: Container(
+        color: Colors.amber,
       ),
     );
   }

@@ -1,7 +1,7 @@
+import 'package:american_dream_osh/presentasion/page/authpage/LogIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 import '../presentasion/widgets/login_widgets.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -22,17 +22,20 @@ class _ResetPasswordState extends State<ResetPassword> {
   Future passwordReset() async {
     try {
       await FirebaseAuth.instance
-          .sendPasswordResetEmail(email: _emailController.text);
+          .sendPasswordResetEmail(email: _emailController.text)
+          .then(
+            (value) => Navigator.pop(context),
+          );
       Fluttertoast.showToast(
           msg:
               "Отправлено ссылку для сброса пароля! Проверьте свою электронную",
-          timeInSecForIosWeb: 2,
+          timeInSecForIosWeb: 4,
           toastLength: Toast.LENGTH_LONG);
     } on FirebaseAuthException catch (e) {
       print(e);
       Fluttertoast.showToast(
         msg: e.message.toString(),
-        timeInSecForIosWeb: 2,
+        timeInSecForIosWeb: 5,
         toastLength: Toast.LENGTH_SHORT,
       );
     }
@@ -41,7 +44,6 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(

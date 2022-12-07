@@ -1,5 +1,6 @@
 import 'package:american_dream_osh/service/reset_password.dart';
 import 'package:american_dream_osh/presentasion/page/home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../service/signin_service.dart';
@@ -89,12 +90,15 @@ class _LogInState extends State<LogIn> {
                     text: "Войти",
                     onPressed: () async {
                       await SignInAuth.signIn(
-                        email: _emailController.text.trim(),
-                        password: _passwordController.text.trim(),
-                      );
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                              email: _emailController.text.trim(),
+                              password: _passwordController.text.trim())
+                          .then(
+                        (value) => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        ),
                       );
                     }),
                 SizedBox(
