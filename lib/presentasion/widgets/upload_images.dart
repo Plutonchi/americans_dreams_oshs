@@ -19,37 +19,34 @@ class _uploadImageState extends State<uploadImage> {
   String imageUrl = " ";
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        GestureDetector(
-          onTap: () {
-            pickUpload();
-          },
-          child: CircleAvatar(
-            child: imageUrl == " "
-                ? Image.asset("assets/images/user.png")
-                : Image.network(imageUrl),
-          ),
-          // child: Container(
-          //   width: 80,
-          //   height: 80,
-          //   decoration: BoxDecoration(
-          //     shape: BoxShape.circle,
-          //        color: primaryColor),
-          //   child: Center(
-          //     child: imageUrl == " "
-          //         ? Image.asset("assets/images/user.png")
-          //         : Image.network(imageUrl),
-          //   ),
-          // ),
-        ),
-      ],
+    return GestureDetector(
+      onTap: () {
+        pickUpload();
+      },
+      child: CircleAvatar(
+        radius: 30,
+        child: imageUrl == " "
+            ? Image.asset("assets/images/user.png")
+            : Image.network(imageUrl),
+      ),
+      // child: Container(
+      //   width: 80,
+      //   height: 80,
+      //   decoration: BoxDecoration(
+      //     shape: BoxShape.circle,
+      //        color: primaryColor),
+      //   child: Center(
+      //     child: imageUrl == " "
+      //         ? Image.asset("assets/images/user.png")
+      //         : Image.network(imageUrl),
+      //   ),
+      // ),
     );
   }
 
   void pickUpload() async {
     final image = await ImagePicker()
-        .pickImage(source: ImageSource.gallery, imageQuality: 75);
+        .pickImage(source: ImageSource.gallery, imageQuality: 100);
     Reference ref = FirebaseStorage.instance.ref("assets/images/user.png");
     await ref.putFile(
       File(image!.path),

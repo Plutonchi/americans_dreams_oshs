@@ -27,12 +27,14 @@ class Register {
       if (e.code == "weak-password") {
         Fluttertoast.showToast(
           msg: e.message.toString(),
-          gravity: ToastGravity.TOP,
+          gravity: ToastGravity.BOTTOM,
+          fontSize: 18,
           timeInSecForIosWeb: 5,
           toastLength: Toast.LENGTH_SHORT,
         );
         print("Password low ");
         Fluttertoast.showToast(
+          fontSize: 18,
           msg: e.message.toString(),
           gravity: ToastGravity.TOP,
           timeInSecForIosWeb: 5,
@@ -40,6 +42,7 @@ class Register {
         );
       } else if (e.code == "email-already-in-use") {
         Fluttertoast.showToast(
+          fontSize: 18,
           msg: e.message.toString(),
           gravity: ToastGravity.TOP,
           timeInSecForIosWeb: 5,
@@ -48,6 +51,7 @@ class Register {
         print("Email change");
       } else {
         Fluttertoast.showToast(
+          fontSize: 18,
           msg: e.message.toString(),
           gravity: ToastGravity.TOP,
           timeInSecForIosWeb: 5,

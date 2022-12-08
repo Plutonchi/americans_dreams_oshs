@@ -1,4 +1,3 @@
-import 'package:american_dream_osh/presentasion/page/authpage/LogIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -27,14 +26,18 @@ class _ResetPasswordState extends State<ResetPassword> {
             (value) => Navigator.pop(context),
           );
       Fluttertoast.showToast(
+        fontSize: 18,
           msg:
               "Отправлено ссылку для сброса пароля! Проверьте свою электронную",
           timeInSecForIosWeb: 4,
+          gravity: ToastGravity.BOTTOM,
           toastLength: Toast.LENGTH_SHORT);
     } on FirebaseAuthException catch (e) {
       print(e);
       Fluttertoast.showToast(
+        fontSize: 18,
         msg: e.message.toString(),
+        gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 5,
         toastLength: Toast.LENGTH_SHORT,
       );
