@@ -1,10 +1,11 @@
 import 'package:american_dream_osh/presentasion/page/home_page.dart';
+import 'package:american_dream_osh/presentasion/provider/google_sign_in.dart';
 import 'package:american_dream_osh/service/register_service.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import '../../widgets/login_widgets.dart';
 
 class SingIn extends StatefulWidget {
@@ -95,6 +96,22 @@ class _SingInState extends State<SingIn> {
                         Navigator.pop(context);
                       },
                     ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          elevation: 0,
+                        ),
+                        onPressed: () {
+                          final provider = Provider.of<GoogleSignInProvider>(
+                              context,
+                              listen: false);
+                          provider.googleLogin();
+                        },
+                        child: SvgPicture.asset("assets/icon/google.svg")),
                   ],
                 ),
               ],

@@ -1,7 +1,9 @@
 import 'package:american_dream_osh/presentasion/page/home_page.dart';
 import 'package:american_dream_osh/presentasion/page/splash_screen.dart';
+import 'package:american_dream_osh/presentasion/provider/google_sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'data/firebase_options.dart';
 
 void main() async {
@@ -19,9 +21,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+    return ChangeNotifierProvider(
+      create: (context) => GoogleSignInProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
     );
   }
 }
