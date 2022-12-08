@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Register {
@@ -14,7 +14,7 @@ class Register {
           msg:
               "Cсылка для проверки электронной почты отправлена на ваш электронный адрес.",
           timeInSecForIosWeb: 5,
-          toastLength: Toast.LENGTH_LONG);
+          toastLength: Toast.LENGTH_SHORT);
     }
 
     try {
@@ -27,31 +27,31 @@ class Register {
       if (e.code == "weak-password") {
         Fluttertoast.showToast(
           msg: e.message.toString(),
-          gravity: ToastGravity.CENTER,
+          gravity: ToastGravity.TOP,
           timeInSecForIosWeb: 5,
-          toastLength: Toast.LENGTH_LONG,
+          toastLength: Toast.LENGTH_SHORT,
         );
         print("Password low ");
         Fluttertoast.showToast(
           msg: e.message.toString(),
-          gravity: ToastGravity.CENTER,
+          gravity: ToastGravity.TOP,
           timeInSecForIosWeb: 5,
-          toastLength: Toast.LENGTH_LONG,
+          toastLength: Toast.LENGTH_SHORT,
         );
       } else if (e.code == "email-already-in-use") {
         Fluttertoast.showToast(
           msg: e.message.toString(),
-          gravity: ToastGravity.CENTER,
+          gravity: ToastGravity.TOP,
           timeInSecForIosWeb: 5,
-          toastLength: Toast.LENGTH_LONG,
+          toastLength: Toast.LENGTH_SHORT,
         );
         print("Email change");
       } else {
         Fluttertoast.showToast(
           msg: e.message.toString(),
-          gravity: ToastGravity.CENTER,
+          gravity: ToastGravity.TOP,
           timeInSecForIosWeb: 5,
-          toastLength: Toast.LENGTH_LONG,
+          toastLength: Toast.LENGTH_SHORT,
         );
         print(e.code);
       }

@@ -25,29 +25,32 @@ class _uploadImageState extends State<uploadImage> {
           onTap: () {
             pickUpload();
           },
-          child: Container(
-            width: 80,
-            height: 80,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50), color: primaryColor),
-            child: Center(
-              child: imageUrl == " "
-                  ? Image.asset("images/user.png")
-                  : Image.network(imageUrl),
-            ),
+          child: CircleAvatar(
+            child: imageUrl == " "
+                ? Image.asset("assets/images/user.png")
+                : Image.network(imageUrl),
           ),
+          // child: Container(
+          //   width: 80,
+          //   height: 80,
+          //   decoration: BoxDecoration(
+          //     shape: BoxShape.circle,
+          //        color: primaryColor),
+          //   child: Center(
+          //     child: imageUrl == " "
+          //         ? Image.asset("assets/images/user.png")
+          //         : Image.network(imageUrl),
+          //   ),
+          // ),
         ),
       ],
     );
   }
 
   void pickUpload() async {
-    final image = await ImagePicker().pickImage(
-        source: ImageSource.gallery,
-        maxWidth: 200,
-        maxHeight: 200,
-        imageQuality: 75);
-    Reference ref = FirebaseStorage.instance.ref("profilepic.jpg");
+    final image = await ImagePicker()
+        .pickImage(source: ImageSource.gallery, imageQuality: 75);
+    Reference ref = FirebaseStorage.instance.ref("assets/images/user.png");
     await ref.putFile(
       File(image!.path),
     );

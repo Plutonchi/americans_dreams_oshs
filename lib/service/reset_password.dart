@@ -30,7 +30,7 @@ class _ResetPasswordState extends State<ResetPassword> {
           msg:
               "Отправлено ссылку для сброса пароля! Проверьте свою электронную",
           timeInSecForIosWeb: 4,
-          toastLength: Toast.LENGTH_LONG);
+          toastLength: Toast.LENGTH_SHORT);
     } on FirebaseAuthException catch (e) {
       print(e);
       Fluttertoast.showToast(
