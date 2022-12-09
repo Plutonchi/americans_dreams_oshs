@@ -1,3 +1,4 @@
+import 'package:american_dream_osh/presentasion/page/authpage/phone.dart';
 import 'package:american_dream_osh/presentasion/page/home_page.dart';
 import 'package:american_dream_osh/presentasion/provider/google_sign_in.dart';
 import 'package:american_dream_osh/service/register_service.dart';
@@ -112,6 +113,18 @@ class _SingInState extends State<SingIn> {
                           provider.googleLogin();
                         },
                         child: SvgPicture.asset("assets/icon/google.svg")),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Phone()),
+                          );
+                        },
+                        child: Icon(
+                          Icons.phone,
+                          color: Colors.black,
+                          size: 45,
+                        ))
                   ],
                 ),
               ],

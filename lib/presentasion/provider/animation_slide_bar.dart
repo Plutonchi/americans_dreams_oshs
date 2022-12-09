@@ -84,9 +84,13 @@ class _AnimationSlideBarState extends State<AnimationSlideBar> {
                 ),
                 Expanded(
                   child: Text(
-                    user.email.toString(),
+                    user.phoneNumber.toString(),
                     style: TextStyle(fontSize: 15, color: Colors.white),
                   ),
+                  // Text(
+                  //   user.email.toString(),
+                  //   style: TextStyle(fontSize: 15, color: Colors.white),
+                  // ),
                 ),
               ],
             ),

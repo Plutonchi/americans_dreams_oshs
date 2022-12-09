@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -26,6 +27,8 @@ class Register {
     } on FirebaseAuthException catch (e) {
       if (e.code == "weak-password") {
         Fluttertoast.showToast(
+          backgroundColor: Colors.transparent,
+          textColor: Colors.white,
           msg: e.message.toString(),
           gravity: ToastGravity.BOTTOM,
           fontSize: 18,
@@ -34,6 +37,8 @@ class Register {
         );
         print("Password low ");
         Fluttertoast.showToast(
+          backgroundColor: Colors.transparent,
+          textColor: Colors.white,
           fontSize: 18,
           msg: e.message.toString(),
           gravity: ToastGravity.TOP,
@@ -42,6 +47,8 @@ class Register {
         );
       } else if (e.code == "email-already-in-use") {
         Fluttertoast.showToast(
+          backgroundColor: Colors.transparent,
+          textColor: Colors.white,
           fontSize: 18,
           msg: e.message.toString(),
           gravity: ToastGravity.TOP,
@@ -51,6 +58,8 @@ class Register {
         print("Email change");
       } else {
         Fluttertoast.showToast(
+          backgroundColor: Colors.transparent,
+          textColor: Colors.white,
           fontSize: 18,
           msg: e.message.toString(),
           gravity: ToastGravity.TOP,

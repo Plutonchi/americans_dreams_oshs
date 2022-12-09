@@ -69,7 +69,8 @@ class _LogInState extends State<LogIn> {
                   hintText: "Password",
                   preffixIcon: Icons.lock_outline,
                   color: Color.fromARGB(192, 43, 43, 43),
-                  obscureText: true,
+                  obscureText: true ,
+                  
                 ),
                 SizedBox(
                   height: 15,

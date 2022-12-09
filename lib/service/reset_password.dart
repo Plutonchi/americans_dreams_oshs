@@ -25,7 +25,8 @@ class _ResetPasswordState extends State<ResetPassword> {
           .then(
             (value) => Navigator.pop(context),
           );
-      Fluttertoast.showToast(
+      Fluttertoast.showToast(backgroundColor: Colors.transparent,
+                                textColor: Colors.white,
         fontSize: 18,
           msg:
               "Отправлено ссылку для сброса пароля! Проверьте свою электронную",
@@ -34,7 +35,8 @@ class _ResetPasswordState extends State<ResetPassword> {
           toastLength: Toast.LENGTH_SHORT);
     } on FirebaseAuthException catch (e) {
       print(e);
-      Fluttertoast.showToast(
+      Fluttertoast.showToast(backgroundColor: Colors.transparent,
+                                textColor: Colors.white,
         fontSize: 18,
         msg: e.message.toString(),
         gravity: ToastGravity.BOTTOM,

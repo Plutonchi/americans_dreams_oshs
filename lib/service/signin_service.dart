@@ -11,15 +11,16 @@ class SignInAuth {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       Fluttertoast.showToast(
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
+        backgroundColor: Colors.transparent,
+                                textColor: Colors.white,
         msg: "Выполнено вход",
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 5,
       );
       print("Seccsesfull");
     } on FirebaseAuthException catch (e) {
-      Fluttertoast.showToast(
+      Fluttertoast.showToast(backgroundColor: Colors.transparent,
+                                textColor: Colors.white,
           msg: e.message.toString(),
           gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 5,
