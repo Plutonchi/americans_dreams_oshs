@@ -1,5 +1,5 @@
-import 'package:american_dream_osh/presentasion/page/authpage/phone.dart';
-import 'package:american_dream_osh/presentasion/page/home_page.dart';
+import 'package:american_dream_osh/presentasion/ui/authpage/phone.dart';
+import 'package:american_dream_osh/presentasion/ui/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';

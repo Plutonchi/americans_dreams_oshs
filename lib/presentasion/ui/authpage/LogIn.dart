@@ -1,5 +1,5 @@
 import 'package:american_dream_osh/service/reset_password.dart';
-import 'package:american_dream_osh/presentasion/page/home_page.dart';
+import 'package:american_dream_osh/presentasion/ui/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,7 +34,7 @@ class _LogInState extends State<LogIn> {
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
                   height: 60,

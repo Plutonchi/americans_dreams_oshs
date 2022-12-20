@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:american_dream_osh/presentasion/ui/calendar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -7,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sidebarx/sidebarx.dart';
 
-import '../page/authpage/LogIn.dart';
+import '../ui/authpage/LogIn.dart';
+import '../ui/pay.dart';
 import '../widgets/upload_images.dart';
 import 'color_custom.dart';
 
@@ -59,12 +61,12 @@ class _AnimationSlideBarState extends State<AnimationSlideBar> {
             )
           ],
         ),
-        iconTheme: const IconThemeData(
+        iconTheme: IconThemeData(
           color: Colors.white,
           size: 20,
         ),
       ),
-      extendedTheme: const SidebarXTheme(
+      extendedTheme: SidebarXTheme(
         width: 200,
         decoration: BoxDecoration(
           color: canvasColor,
@@ -84,13 +86,9 @@ class _AnimationSlideBarState extends State<AnimationSlideBar> {
                 ),
                 Expanded(
                   child: Text(
-                    user.phoneNumber.toString(),
+                    user.email.toString(),
                     style: TextStyle(fontSize: 15, color: Colors.white),
                   ),
-                  // Text(
-                  //   user.email.toString(),
-                  //   style: TextStyle(fontSize: 15, color: Colors.white),
-                  // ),
                 ),
               ],
             ),
@@ -109,14 +107,26 @@ class _AnimationSlideBarState extends State<AnimationSlideBar> {
           onTap: () {},
         ),
         SidebarXItem(
-          icon: Icons.people,
-          label: 'People',
-          onTap: () {},
+          icon: Icons.payment,
+          label: 'Pay',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Pay(),
+              ),
+            );
+          },
         ),
         SidebarXItem(
-          icon: Icons.favorite,
-          label: 'Favorites',
-          onTap: () {},
+          icon: Icons.calendar_month_outlined,
+          label: 'Calendar',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Calendar()),
+            );
+          },
         ),
         SidebarXItem(
             icon: Icons.logout_outlined,

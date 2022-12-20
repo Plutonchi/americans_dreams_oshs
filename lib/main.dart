@@ -1,5 +1,4 @@
-import 'package:american_dream_osh/presentasion/page/home_page.dart';
-import 'package:american_dream_osh/presentasion/page/splash_screen.dart';
+import 'package:american_dream_osh/presentasion/ui/splash_screen.dart';
 import 'package:american_dream_osh/presentasion/provider/google_sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';

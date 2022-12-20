@@ -23,8 +23,11 @@ class HomePage extends StatelessWidget {
           icon: const Icon(Icons.menu_rounded),
         ),
       ),
-      body: Container(
-        color: Colors.amber,
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.white,
+          child: Column(),
+        ),
       ),
     );
   }

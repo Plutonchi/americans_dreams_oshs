@@ -25,9 +25,10 @@ class _ResetPasswordState extends State<ResetPassword> {
           .then(
             (value) => Navigator.pop(context),
           );
-      Fluttertoast.showToast(backgroundColor: Colors.transparent,
-                                textColor: Colors.white,
-        fontSize: 18,
+      Fluttertoast.showToast(
+          backgroundColor: Colors.transparent,
+          textColor: Colors.white,
+          fontSize: 18,
           msg:
               "Отправлено ссылку для сброса пароля! Проверьте свою электронную",
           timeInSecForIosWeb: 4,
@@ -35,8 +36,9 @@ class _ResetPasswordState extends State<ResetPassword> {
           toastLength: Toast.LENGTH_SHORT);
     } on FirebaseAuthException catch (e) {
       print(e);
-      Fluttertoast.showToast(backgroundColor: Colors.transparent,
-                                textColor: Colors.white,
+      Fluttertoast.showToast(
+        backgroundColor: Colors.transparent,
+        textColor: Colors.white,
         fontSize: 18,
         msg: e.message.toString(),
         gravity: ToastGravity.BOTTOM,
@@ -49,6 +51,17 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          color: Colors.black,
+          icon: const Icon(Icons.arrow_back),
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(

@@ -1,5 +1,5 @@
-import 'package:american_dream_osh/presentasion/page/authpage/phone.dart';
-import 'package:american_dream_osh/presentasion/page/home_page.dart';
+import 'package:american_dream_osh/presentasion/ui/authpage/phone.dart';
+import 'package:american_dream_osh/presentasion/ui/home_page.dart';
 import 'package:american_dream_osh/presentasion/provider/google_sign_in.dart';
 import 'package:american_dream_osh/service/register_service.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,7 +29,7 @@ class _SingInState extends State<SingIn> {
             color: Colors.white,
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
                   height: 60,
@@ -99,7 +99,11 @@ class _SingInState extends State<SingIn> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 35,
+                ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextButton(
                         style: TextButton.styleFrom(
