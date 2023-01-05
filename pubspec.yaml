@@ -51,6 +51,9 @@ dependencies:
   flutter_multi_formatter: ^2.9.11
   country_pickers: ^2.0.0
   time_planner: ^0.1.1
+  flutter_stripe: ^7.0.0
+  http: ^0.13.5
+  bottom_navy_bar: ^6.0.0
 
 dev_dependencies:
   flutter_test:

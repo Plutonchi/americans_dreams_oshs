@@ -30,6 +30,19 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: TimePlanner(
         // time will be start at this hour on table
         startHour: 6,
@@ -48,7 +61,7 @@ class _CalendarState extends State<Calendar> {
           TimePlannerTitle(
             date: "3/12/2021",
             title: "tuesday",
-          ),      
+          ),
         ],
         // List of task will be show on the time planner
         tasks: tasks,

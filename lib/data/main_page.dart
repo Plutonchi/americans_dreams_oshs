@@ -4,8 +4,6 @@ import 'package:american_dream_osh/presentasion/ui/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../presentasion/ui/authpage/SignIn.dart';
-
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
 

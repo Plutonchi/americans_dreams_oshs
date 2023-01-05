@@ -1,13 +1,7 @@
-import 'dart:io';
-
 import 'package:american_dream_osh/presentasion/ui/calendar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:sidebarx/sidebarx.dart';
-
 import '../ui/authpage/LogIn.dart';
 import '../ui/pay.dart';
 import '../widgets/upload_images.dart';
@@ -98,17 +92,17 @@ class _AnimationSlideBarState extends State<AnimationSlideBar> {
       items: [
         SidebarXItem(
           icon: Icons.home,
-          label: 'Home',
+          label: 'Главная',
           onTap: () {},
         ),
         SidebarXItem(
-          icon: Icons.search,
-          label: 'Search',
+          icon: Icons.calendar_today_outlined,
+          label: 'Расписание',
           onTap: () {},
         ),
         SidebarXItem(
           icon: Icons.payment,
-          label: 'Pay',
+          label: 'Оплата',
           onTap: () {
             Navigator.push(
               context,
@@ -120,7 +114,7 @@ class _AnimationSlideBarState extends State<AnimationSlideBar> {
         ),
         SidebarXItem(
           icon: Icons.calendar_month_outlined,
-          label: 'Calendar',
+          label: 'Календарь',
           onTap: () {
             Navigator.push(
               context,
@@ -130,7 +124,7 @@ class _AnimationSlideBarState extends State<AnimationSlideBar> {
         ),
         SidebarXItem(
             icon: Icons.logout_outlined,
-            label: "Log Out",
+            label: "Выйти",
             onTap: () {
               FirebaseAuth.instance.signOut().then(
                     (value) => Navigator.push(
